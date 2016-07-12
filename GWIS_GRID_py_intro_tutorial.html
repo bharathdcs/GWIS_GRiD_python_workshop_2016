@@ -56,8 +56,8 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li>Once you've opened a python interpreter you can type any valid python code and hit enter. The canonical starting point is the &quot;Hello World&quot;. Paste the following into your interpreter (after the <code>&gt;&gt;&gt;</code>) <br></li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span> <span class="st">&quot;Hello World&quot;</span></code></pre></div>
-<p>Python syntax is designed to be very readable. We have a function, <code>print</code>, followed by the argument to the command, telling it what to print. In this case, we passed the string <code>&quot;Hello World&quot;</code>, but you can pass any type of object to the print command, and Python will spit out a string representation of that object. <br></p>
-<p>Since <code>&quot;Hello World&quot;</code> is already a string, <code>print</code> just spits it back at us. But lets pass some other types of objects to the print command. Other object types include:</p>
+<p>Python syntax is designed to be very readable. We have a statement, <code>print</code>, followed by the argument, telling it what to print. In this case, we passed the string <code>&quot;Hello World&quot;</code>, but you can pass any type of object to the print statement, and python will spit a string representation of that object to the console. <br></p>
+<p>Since <code>&quot;Hello World&quot;</code> is already a string, <code>print</code> just spits it to the console. But lets pass some other types of objects to the print statement. Other object types include:</p>
 <table>
 <thead>
 <tr class="header">
@@ -84,7 +84,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># lets print an integer</span>
 <span class="bu">print</span> <span class="dv">2</span>
 
-<span class="co"># an alternative way call to print (this looks like a more traditional function call)</span>
+<span class="co"># an alternative way to print (this looks like a more traditional function call)</span>
 <span class="bu">print</span>(<span class="dv">2</span>)
 
 <span class="co"># lets print a float</span>
@@ -94,11 +94,11 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <span class="bu">print</span> <span class="va">True</span></code></pre></div>
 <p>How does python know how to print all these different types of objects?</p>
 <ul>
-<li>Every object in python has string representation of itself. When you pass any object to the <code>print</code> command, it converts it to that string, and displays it to you. This might seem simple, but its a fundamental concept. <code>print</code> takes any kind of object and returns it's string interpretation.</li>
+<li>Every object in python has string representation of itself. When you pass any object to the <code>print</code> statement, it converts it to that string, and displays it to you. This might seem simple, but its a fundamental concept. <code>print</code> takes any kind of object and displays it's string interpretation.</li>
 </ul>
 <p>How can we know the type of an object?</p>
 <ul>
-<li>Just like with the print statement, python has a very intuitive way of doing this. It's called the <code>type</code> function.</li>
+<li>Just like with the print statement, python has a very intuitive way of doing this. It's called the <code>type</code> function. functions are slightly different than statements, but for this tutorial, the only difference you need to know is that a function is called with parens <code>()</code>, and it must return something.</li>
 </ul>
 <h3 id="type">Type</h3>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># how do we know that 2.1 is really a float?</span>
@@ -108,6 +108,140 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <span class="bu">type</span>(<span class="va">True</span>)
 <span class="bu">type</span>(<span class="st">&quot;Hello World&quot;</span>)</code></pre></div>
 <p>In the same way that every python object has a string representation, every python object must also have a type. Just as the <code>print</code> function returns the string interpretation, <code>type</code> returns the object type. It's a very useful command!</p>
+<h3 id="variables">Variables</h3>
+<p>Creating a variable in python is also straightforward:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># lets assign your name to a variable</span>
+my_name <span class="op">=</span> <span class="st">&quot;John&quot;</span></code></pre></div>
+<p>In python, the <code>=</code> sign is the assignment operator. It takes the value on the right, and assigns it to the variable on the left. In this case, we are assigning the string <code>&quot;John&quot;</code>, to the variable <code>my_name</code>. This variable now references our string object. This means that any time you use <code>my_name</code> you are <em>pointing</em> to the string with your name in it. You can use the variable anywhere you could have used the string:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># we can print the object referenced by my_name</span>
+<span class="bu">print</span>(my_name)
+
+<span class="co"># we can ask what type of object is stored in my_name</span>
+<span class="bu">type</span>(my_name)</code></pre></div>
+<h3 id="operations">Operations</h3>
+<p>Python tries to interpret what you mean, more than most other languages. We can see examples of this in arithmetic operations:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># lets store some numerical data</span>
+my_first_int <span class="op">=</span> <span class="dv">4</span>
+my_second_int <span class="op">=</span> <span class="dv">3</span>
+
+<span class="co"># we can do some simple arithmetic</span>
+<span class="bu">print</span>(my_first_int <span class="op">+</span> my_second_int)
+
+<span class="co"># we can even store the output in a new variable</span>
+my_sum <span class="op">=</span> my_first_int <span class="op">+</span> my_second_int
+
+<span class="co"># what type will the new variable be?</span>
+<span class="bu">type</span>(my_sum)</code></pre></div>
+<h3 id="arithmetic-and-types">Arithmetic and Types</h3>
+<ul>
+<li>when you tell python to divide two integers, it applies integer division. The division will be rounded down to the nearest integer</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a, b <span class="op">=</span> <span class="dv">3</span>, <span class="dv">4</span>
+ratio <span class="op">=</span> a <span class="op">/</span> b
+
+<span class="bu">print</span>(ratio)
+<span class="bu">print</span>(<span class="bu">type</span>(ratio))</code></pre></div>
+<ul>
+<li>when you tell python to divide two floats, it can return a float</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="fl">3.0</span> 
+b <span class="op">=</span> <span class="bu">float</span>(<span class="dv">4</span>)
+
+<span class="bu">print</span>(a <span class="op">/</span> b)
+<span class="bu">print</span>(<span class="bu">type</span>(a <span class="op">/</span> b))</code></pre></div>
+<h3 id="arithmetic-and-mixed-types">Arithmetic and Mixed Types</h3>
+<ul>
+<li>when you tell python to divide a float and an int, it assumes you want a float, and converts the integer into a float before division</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a, b <span class="op">=</span> <span class="dv">3</span>, <span class="fl">4.1</span>
+
+<span class="bu">print</span>(a <span class="op">+</span> b)
+<span class="bu">print</span>(a <span class="op">/</span> b)</code></pre></div>
+<h2 id="for-loops">2. For Loops</h2>
+<ul>
+<li>for loops, and while are very straight forward in python</li>
+</ul>
+<h3 id="for-loops-1">For Loops</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> i <span class="op">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">5</span>):
+  <span class="bu">print</span> i</code></pre></div>
+<h3 id="while-loops">While Loops</h3>
+<ul>
+<li>here you'll notice the integer division behavior again</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">0</span>
+<span class="cf">while</span> a<span class="op">/</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">0</span>:
+  a <span class="op">+=</span> <span class="dv">1</span>
+  <span class="bu">print</span> a</code></pre></div>
+<h2 id="functions">3. Functions</h2>
+<ul>
+<li>functions are simple to define and use in python ```python def add_two_things(thing1, thing2): return thing1 + thing2</li>
+</ul>
+<p>print(add_two_things(1,2)) ``<code>- If you do not include a</code>return<code>statement, the function will return something called a</code>None` by default. This is python's way of denoting an empty, or valueless object.</p>
+<h2 id="lists">4. Lists</h2>
+<ul>
+<li>python lists are a powerful and flexible tool for data manipulation</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_list <span class="op">=</span> []
+<span class="cf">for</span> i <span class="op">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">6</span>):
+  my_list.append(i)
+  
+<span class="bu">print</span> my_list</code></pre></div>
+<h3 id="list-properties">List Properties</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_list <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]
+  
+<span class="co"># first element</span>
+<span class="bu">print</span> my_list[<span class="dv">0</span>]
+<span class="co"># last element</span>
+<span class="bu">print</span> my_list[<span class="op">-</span><span class="dv">1</span>]
+<span class="co"># number of elements</span>
+<span class="bu">print</span> <span class="bu">len</span>(my_list)
+<span class="co"># range of elements</span>
+<span class="bu">print</span> my_list[<span class="dv">0</span>:<span class="dv">3</span>]
+<span class="co"># right-bounded range of elements</span>
+<span class="bu">print</span> my_list[:<span class="dv">3</span>]</code></pre></div>
+<h3 id="indexing-lists">Indexing Lists</h3>
+<ul>
+<li><p>a common way of indexing lists in python can be seen in the following loop. Remember, indeces start at 0!</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_list <span class="op">=</span> [<span class="dv">7</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">11</span>,<span class="dv">2</span>,<span class="dv">8</span>]
+<span class="cf">for</span> i <span class="op">in</span> <span class="bu">range</span>(<span class="bu">len</span>(my_list)):
+  <span class="bu">print</span> my_list[i]</code></pre></div></li>
+</ul>
+<h3 id="list-comprehension">List Comprehension</h3>
+<ul>
+<li>list comprehension is a concise way to generate lists. They can replace for loops that take up more lines of code ```python my_list = [1,2,3,4] print my_list</li>
+</ul>
+<p>my_list = [ i for i in range(1,6) ] print my_list ```</p>
+<h1 id="lists-are-flexible">Lists are Flexible</h1>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">mat <span class="op">=</span> [[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>],[<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]]
+stuff <span class="op">=</span> [<span class="st">&quot;hello&quot;</span>, <span class="dv">1</span>, <span class="va">True</span>, [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]]
+<span class="bu">print</span> mat, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>, stuff</code></pre></div>
+<h2 id="packages-and-numpy">5. Packages and Numpy</h2>
+<ul>
+<li>Numpy is a package that makes many mathematical operations simple in python.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> numpy <span class="im">as</span> np
+<span class="co"># np arrays behave like lists</span>
+<span class="bu">print</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])
+<span class="co"># but they can be easily manipulated with mathematical operations</span>
+<span class="bu">print</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]) <span class="op">+</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])
+<span class="bu">print</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]) <span class="op">*</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])
+<span class="co"># they can be indexed just like regular lists</span>
+<span class="bu">print</span> a[:<span class="dv">2</span>]</code></pre></div>
+<ul>
+<li>Numpy makes dealing with matrices easy!</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># the numpy function produces a N x M matrix of 0&#39;s</span>
+l <span class="op">=</span> np.zeros((<span class="dv">3</span>,<span class="dv">4</span>))
+<span class="bu">print</span> l
+<span class="co"># indexing is done like this</span>
+<span class="bu">print</span> l[<span class="dv">1</span>,<span class="dv">1</span>]
+<span class="co"># you can also give ranges to partition</span>
+<span class="bu">print</span> l[<span class="dv">1</span>:<span class="dv">3</span>,<span class="dv">1</span>]
+<span class="co"># the &quot;eye&quot; function produces N x N dimensional identity matrices</span>
+M <span class="op">=</span> np.eye(<span class="dv">2</span>)
+<span class="bu">print</span> M
+<span class="co"># Numpy has a large array of matrix related functions, such as the dot product</span>
+np.dot(M, M)</code></pre></div>
 <p class="footer"><a href="">Home</a></p>
 <p class="update-date">Last updated: </p>
 </body>
