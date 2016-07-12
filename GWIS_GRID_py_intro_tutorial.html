@@ -174,9 +174,15 @@ b <span class="op">=</span> <span class="bu">float</span>(<span class="dv">4</sp
   <span class="bu">print</span> a</code></pre></div>
 <h2 id="functions">3. Functions</h2>
 <ul>
-<li>functions are simple to define and use in python ```python def add_two_things(thing1, thing2): return thing1 + thing2</li>
+<li>functions are simple to define and use in python</li>
 </ul>
-<p>print(add_two_things(1,2)) ``<code>- If you do not include a</code>return<code>statement, the function will return something called a</code>None` by default. This is python's way of denoting an empty, or valueless object.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> add_two_things(thing1, thing2):
+  <span class="cf">return</span> thing1 <span class="op">+</span> thing2
+  
+<span class="bu">print</span>(add_two_things(<span class="dv">1</span>,<span class="dv">2</span>))</code></pre></div>
+<ul>
+<li>If you do not include a <code>return</code> statement, the function will return something called a <code>None</code> by default. This is python's way of denoting an empty, or valueless object.</li>
+</ul>
 <h2 id="lists">4. Lists</h2>
 <ul>
 <li>python lists are a powerful and flexible tool for data manipulation</li>
