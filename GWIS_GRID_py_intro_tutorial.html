@@ -177,8 +177,9 @@ b <span class="op">=</span> <span class="bu">float</span>(<span class="dv">4</sp
 <li>functions are simple to define and use in python</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> add_two_things(thing1, thing2):
-  <span class="cf">return</span> thing1 <span class="op">+</span> thing2
-  
+    <span class="cf">return</span> thing1 <span class="op">+</span> thing2<span class="op">;</span>
+
+
 <span class="bu">print</span>(add_two_things(<span class="dv">1</span>,<span class="dv">2</span>))</code></pre></div>
 <ul>
 <li>If you do not include a <code>return</code> statement, the function will return something called a <code>None</code> by default. This is python's way of denoting an empty, or valueless object.</li>
@@ -189,8 +190,9 @@ b <span class="op">=</span> <span class="bu">float</span>(<span class="dv">4</sp
 </ul>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_list <span class="op">=</span> []
 <span class="cf">for</span> i <span class="op">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">6</span>):
-  my_list.append(i)
-  
+    my_list.append(i)
+
+
 <span class="bu">print</span> my_list</code></pre></div>
 <h3 id="list-properties">List Properties</h3>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_list <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]
@@ -210,13 +212,17 @@ b <span class="op">=</span> <span class="bu">float</span>(<span class="dv">4</sp
 <li><p>a common way of indexing lists in python can be seen in the following loop. Remember, indeces start at 0!</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_list <span class="op">=</span> [<span class="dv">7</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">11</span>,<span class="dv">2</span>,<span class="dv">8</span>]
 <span class="cf">for</span> i <span class="op">in</span> <span class="bu">range</span>(<span class="bu">len</span>(my_list)):
-  <span class="bu">print</span> my_list[i]</code></pre></div></li>
+<span class="bu">print</span> my_list[i]</code></pre></div></li>
 </ul>
 <h3 id="list-comprehension">List Comprehension</h3>
 <ul>
-<li>list comprehension is a concise way to generate lists. They can replace for loops that take up more lines of code ```python my_list = [1,2,3,4] print my_list</li>
+<li>list comprehension is a concise way to generate lists. They can replace for loops that take up more lines of code</li>
 </ul>
-<p>my_list = [ i for i in range(1,6) ] print my_list ```</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_list <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]
+<span class="bu">print</span> my_list
+
+my_list <span class="op">=</span> [ i <span class="cf">for</span> i <span class="op">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">6</span>) ]
+<span class="bu">print</span> my_list</code></pre></div>
 <h1 id="lists-are-flexible">Lists are Flexible</h1>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">mat <span class="op">=</span> [[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>],[<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]]
 stuff <span class="op">=</span> [<span class="st">&quot;hello&quot;</span>, <span class="dv">1</span>, <span class="va">True</span>, [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]]
