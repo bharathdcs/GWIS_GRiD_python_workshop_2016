@@ -254,6 +254,54 @@ M <span class="op">=</span> np.eye(<span class="dv">2</span>)
 <span class="bu">print</span> M
 <span class="co"># Numpy has a large array of matrix related functions, such as the dot product</span>
 np.dot(M, M)</code></pre></div>
+<h2 id="reading-csvs">6. Reading csv's</h2>
+<p>For this section, I'll have you write a script to read a csv into python.</p>
+<ol style="list-style-type: decimal">
+<li>open Sublime, and go to File &gt; New File.</li>
+<li>save the file with File &gt; Save.</li>
+<li>save the file in your downloaded workshop folder (GWIS_GRiD_python_workshop_2016-master), and name the file &quot;my_script.py&quot;</li>
+<li>write <code>print(&quot;hello world&quot;)</code> on the first line of the file, and save it.</li>
+<li><p>open terminal or command prompt, and <code>cd</code> to your workshop folder. If you saved it on your desktop, then you can write this into your terminal or prompt:</p>
+<ul>
+<li>windows: <code>cd C:/Users/&lt;your username here&gt;/Desktop/GWIS_GRiD_python_workshop_2016-master</code></li>
+<li>Mac: <code>cd ~/Desktop/GWIS_GRiD_python_workshop_2016-master</code></li>
+</ul></li>
+<li><p>run your script by typing the following into the terminal or prompt</p>
+<pre><code>python my_script.py</code></pre></li>
+<li><p>if this worked, you can now edit and run python scripts! paste any of the valid code in this tutiorial into your script, save, and rerun your script to see the output. We'll now write some code to read in a csv.</p></li>
+</ol>
+<h3 id="reading-csvs-1">reading csv's</h3>
+<p>I've put a csv file into your directories called &quot;iris_data.csv&quot;. We're going to read it in with python's csv module. Paste the following code into your script:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> csv
+
+input_file <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;iris_data.csv&quot;</span>)
+my_reader <span class="op">=</span> csv.reader(input_file)
+
+<span class="bu">print</span> my_reader.<span class="bu">next</span>()</code></pre></div>
+<ul>
+<li>now, run your script again (with <code>python my_script.py</code>) and it should print the first line of the csv file. This is the famous Iris dataset that contains data on specimens of the Iris flower species.</li>
+<li>the code you just ran did the following things:
+<ol style="list-style-type: decimal">
+<li>imported the csv module</li>
+<li>opened the iris data file as <code>input_file</code></li>
+<li>passed the <code>input_file</code> to a csv reader object</li>
+<li>called the <code>next()</code> function, which just reads the next line in the reader.</li>
+</ol></li>
+<li>you can iterate over the whole file like this. Try replacing the last line with this:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> line <span class="op">in</span> my_reader:
+    <span class="bu">print</span> line</code></pre></div>
+<ul>
+<li>a csv reader is iterable. This means you can write for loops that manipulate it. Here we iterated over every line in the reader, and printed it.</li>
+</ul>
+<h2 id="extra-challenges">7. Extra Challenges</h2>
+<p>Here are some challenges I pulled from a site called <a href="http://codingbat.com/">coding bat</a></p>
+<h3 id="and-7-sums">6 and 7 Sums</h3>
+<p>Define a function to return the sum of the numbers in the array, except ignore sections of numbers starting with a 6 and extending to the next 7 (every 6 will be followed by at least one 7). Return 0 for no numbers. The code should give 10 for the folloing input</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">sum67([<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">9</span>,<span class="dv">7</span>,<span class="dv">2</span>])</code></pre></div>
+<h3 id="centered-average">Centered Average</h3>
+<p>Return the &quot;centered&quot; average of an array of ints, which we'll say is the mean average of the values, except ignoring the largest and smallest values in the array. If there are multiple copies of the smallest value, ignore just one copy, and likewise for the largest value. Use int division to produce the final average. You may assume that the array is length 3 or more. The call below should return 3</p>
+<pre><code>centered_average([1, 2, 3, 4, 100])</code></pre>
 <p class="footer"><a href="">Home</a></p>
 <p class="update-date">Last updated: </p>
 </body>
